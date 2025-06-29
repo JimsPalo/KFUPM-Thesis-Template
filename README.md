@@ -90,8 +90,9 @@ Pull requests and suggestions to improve usability or documentation are welcome!
 
 If you encounter issues or have improvement suggestions, feel free to open an issue or contact:
 
-**Author:** \[Your Name]
-**Email:** \[Your University Email]
+**Author:** Jimmy Palomino
+
+**Email:** jimmy.palomino@yahoo.com
 
 ---
 
