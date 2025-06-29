@@ -1,0 +1,20 @@
+\chapter{Literature Review}
+
+\section{Introduction}
+The application of finite element method (FEM) to fault diagnosis in permanent magnet synchronous motors (PMSMs) has grown significantly in the past two decades. This chapter reviews key contributions to FEM-based modelling, inter-turn short-circuit (ITSC) fault simulation, and electromagnetic analysis for diagnostic feature extraction.
+
+\section{FEM-Based Modelling of PMSMs}
+Several studies have employed FEM to model PMSMs under both healthy and faulty conditions. For example, the authors in \cite{Smith2020} developed a 2D time-stepped transient FEM model to analyse torque ripple and magnetic flux variations due to stator faults. Similarly, \cite{Lee2019} extended the analysis to 3D models, capturing axial effects and end-winding influences.
+
+\section{Simulation of ITSC Faults}
+ITSC faults are among the most common incipient failures in PMSMs. Faults are typically introduced in FEM by shorting turns within a stator coil and assigning a small fault resistance \cite{Wang2018}. This approach allows for accurate electromagnetic behaviour prediction during the fault event. The impact of fault location, resistance, and turn percentage has been extensively explored in \cite{Ahmed2022} and \cite{Zhou2021}.
+
+\section{Electromagnetic Quantities for Fault Analysis}
+Electromagnetic quantities such as phase currents, back-EMF, and air-gap flux density are crucial for identifying ITSC faults. Spectral and time-frequency analyses on current signals have shown promise in detecting early-stage faults \cite{Khan2021}. Additionally, circulating currents between parallel paths have been proposed as indicators of asymmetry \cite{Chen2023}.
+
+\section{Limitations in Existing Literature}
+Most FEM studies assume linear material properties and ideal winding configurations. Moreover, temperature dependence and saturation effects are often neglected. Some works like \cite{Patel2020} attempt to address these through multi-physics co-simulation, but at the cost of increased computational burden.
+
+\section{Summary}
+This review highlights the importance of FEM as a virtual testbench for fault analysis in PMSMs. Although existing literature provides a strong foundation, there remains a need for scalable, fault-inclusive FEM models with realistic winding, resistance, and control conditions tailored to inverter-fed operations.
+

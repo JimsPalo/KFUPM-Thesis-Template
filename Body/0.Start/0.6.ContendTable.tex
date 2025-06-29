@@ -1,0 +1,27 @@
+% \begin{preamble}
+
+%Printing list of symbols and abbreviations
+%setting the width of the labels the same as 2.5cm as required by DGS template
+\setlist[description]{leftmargin=!, labelwidth=2.5cm, font=\normalfont} %
+{
+\setstretch{1.5}%
+%
+\newpage
+\phantomsection
+\printglossary[title=LIST OF SYMBOLS, toctitle=LIST OF SYMBOLS, nogroupskip] %
+
+%
+\newpage%
+\phantomsection
+\printglossary[title=LIST OF ABBREVIATIONS, toctitle=LIST OF ABBREVIATIONS,type=\acronymtype,nogroupskip] %
+\setstretch{2}%
+}
+\setlist[description]{style=standard} %
+%
+% The following file defines the Thesis abstract
+\textwidth=5.75in
+\oddsidemargin=0.505in
+
+
+% \end{preamble}
+

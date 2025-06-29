@@ -1,0 +1,170 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% KFUPM Thesis Template for MS and PhD Students
+%% DO NOT ALTER THE CLASS FILE 'kfupm_thesis.cls'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Choose ONE document class only
+\documentclass[ms,twoside,12pt]{kfupm_thesis}
+% \documentclass[printready,ms,twoside,12pt]{kfupm_thesis}
+% \documentclass[phd,twoside,12pt]{kfupm_thesis}
+% \documentclass[printready,phd,twoside,12pt]{kfupm_thesis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Margin and Text Width Configuration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textwidth=5.75in
+\oddsidemargin=0.505in
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Essential Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{epsfig}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{float}
+\usepackage{xfrac}
+\usepackage{mhsetup}
+
+\usepackage{lipsum}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Polyglossia for Arabic and English
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{polyglossia}
+\setmainlanguage{english}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Hyperref Setup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Handle polyglossia bug with maketitle
+\let\keptmaketitle\maketitle
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=blue,
+    linkcolor=black,
+    urlcolor=blue
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Empty Page Between Title and Committee Page (Double-Sided)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumitem}
+
+\newcommand{\clearemptydoublepage}{%
+  \clearpage
+  {\pagestyle{empty}\cleardoublepage}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Bibliography Heading Format
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\addto{\captionsenglish}{%
+  \renewcommand{\bibname}{REFERENCES}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Figure and Graphics Setup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.eps}
+\graphicspath{{./figs/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Input Path for Class/Bib Files
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{import}
+\makeatletter
+\def\input@path{{./bst/}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Glossaries for Symbols and Abbreviations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[xindy,toc,acronym,nonumberlist,nopostdot]{glossaries}
+\makeglossaries
+\renewcommand*{\glsclearpage}{} % remove empty pages before lists
+
+%% Define symbol macro
+\newcommand{\sym}[4]{%
+    \newglossaryentry{#1}{%
+        name={#2},
+        description={#3},
+        symbol={#2},
+        sort={#4}
+    }%
+}
+
+%% Example symbol definitions
+\sym{mysymbol}{\ensuremath{\Gamma}}{This is a symbol}{gamma}
+\sym{yoursymbol}{\ensuremath{\Theta}}{This is a symbol}{tetha}
+
+
+
+%% Example acronyms
+\newacronym{phd}{Ph.D.}{Doctor of Philosophy}
+\newacronym{uav}{UAV}{Unmanned Aerial Vehicle}
+\newacronym{vrp}{VRP}{Vehicle Routing Problem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Polyglossia for Arabic and English
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setotherlanguage{arabic}
+\newfontfamily\arabicfont[Script=Arabic]{Scheherazade}
+% Arabic font
+\let\maketitle\keptmaketitle 
+
+%---------------------------------------------------
+%added to overcome the text strecting from top to bottom when using openright
+\raggedbottom%
+
+\newcommand{\authorname}{Jimmy Palomino Huilcapi}
+%--------------------------------------------------------
+\begin{document}
+    
+    \input{Body/0.Start/0.1.Cover}
+    \input{Body/0.Start/0.2.ApprovalPage}
+    \input{Body/0.Start/0.3.Copyright}
+    \input{Body/0.Start/0.4.Dedication}
+    \input{Body/0.Start/0.5.Acknowledgement}
+
+    \begin{preamble}
+        \input{Body/0.Start/0.6.ContendTable}
+        
+        \input{Body/0.Start/0.7.Abstract}
+        \input{Body/0.Start/0.8.AbstractArabic}
+    \end{preamble}
+
+    \input{Body/1.Chapters/1.Introduction}
+    \input{Body/1.Chapters/2.LiteratureReview}
+    \input{Body/1.Chapters/3.Methodology}
+
+    \appendix
+    \input{Body/2.Appendix/A.Appendix}
+    \input{Body/2.Appendix/B.Appendix}
+
+    \bibliographystyle{IEEEtran}
+    \bibliography{Body/3.References}
+
+    \input{Body/4.CV}
+
+\end{document}
